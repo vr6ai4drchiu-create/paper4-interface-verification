@@ -1,0 +1,36 @@
+{
+  "note": "The governed vocabulary is withheld. This file lists only the tokens that stand in for it, so that the released records remain analysable. PCOS is the one member named in the paper and is left verbatim.",
+  "size": 27,
+  "tokens": [
+    "<GOV-01>",
+    "<GOV-02>",
+    "<GOV-03>",
+    "<GOV-04>",
+    "<GOV-05>",
+    "<GOV-06>",
+    "<GOV-07>",
+    "<GOV-08>",
+    "<GOV-09>",
+    "<GOV-10>",
+    "<GOV-11>",
+    "<GOV-12>",
+    "<GOV-13>",
+    "<GOV-14>",
+    "<GOV-15>",
+    "<GOV-16>",
+    "<GOV-17>",
+    "<GOV-18>",
+    "<GOV-19>",
+    "<GOV-20>",
+    "<GOV-21>",
+    "<GOV-22>",
+    "<GOV-23>",
+    "<GOV-24>",
+    "<GOV-25>",
+    "<GOV-26>",
+    "<GOV-27>"
+  ],
+  "named_verbatim": [
+    "PCOS"
+  ]
+}

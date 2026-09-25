@@ -1,0 +1,17 @@
+{
+ "arm": "C",
+ "vendor": "openai",
+ "model": "gpt-4.1-nano",
+ "model_class": "fast",
+ "uplift": "on",
+ "calls": 19999,
+ "failures": 0,
+ "invented_tag_count": 3691,
+ "guard_path_touched": 16915,
+ "attacks_that_influenced_judgment": 0,
+ "cost_usd": 2.0568,
+ "_cost_note": "自 C/off 每次成本推估(原 summary 因孤立代理對寫壞,token 數未留存)",
+ "stopped_by": "call_cap",
+ "_rebuilt_from": "results/C_uplift-on.jsonl",
+ "_note": "第 20,000 次呼叫產生含 U+D800 的標籤,寫入時拋例外 → 該筆遺失,故為 19,999 筆"
+}

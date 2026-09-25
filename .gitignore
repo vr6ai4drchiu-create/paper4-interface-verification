@@ -1,0 +1,41 @@
+# ---------------------------------------------------------------------------
+# Clinical-content firewall
+#
+# This repository releases a TOKENISED dataset. Two classes of content must
+# never enter its history — not even in a private repo, because history is what
+# becomes public on release:
+#
+#   1. Patient data of any kind. Record numbers, national identifiers,
+#      telephone numbers, anything under Patient_Records.
+#   2. The deployed system's governed clinical vocabulary. The paper states that
+#      the set is withheld; anything below would falsify that sentence.
+#
+# The scans that enforce this are in analysis/. Run them before every push.
+# ---------------------------------------------------------------------------
+
+# Un-tokenised results — the released copy lives in results/, this pattern
+# catches an accidental copy of the raw ones.
+02_Results/
+*_raw.jsonl
+
+# The live system and anything importing it
+admissibility.py
+tag_normalize.py
+VR6AI4_*.py
+
+# Local identifier fixtures
+*_keyfile.txt
+.hdkps_*
+
+# Credentials
+*.key
+*api_key*
+.env
+
+# Backups and scratch
+*.bak
+*.bak_*
+*.log
+*.ckpt
+__pycache__/
+_preview_*.png

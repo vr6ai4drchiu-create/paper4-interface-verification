@@ -1,0 +1,130 @@
+{
+  "_note": "紅隊唯一允許的輸入來源。全部為合成值 —— 不得自 Patient_Records 產生任何內容。",
+  "_provenance": "數值取自內核公開的判定邊界(eGFR 30／ASCVD 10／VR6 1-10)與 SSPI 治理集,非任何真實病人。",
+  "_encoding_note": "本檔不得含原始控制字元。需要 NUL／零寬字元等攻擊時,以 control_char_attacks 的代號描述,由執行器在送出前組合。",
+  "patient_ids": [
+    "SYN-RT-0001",
+    "SYN-RT-0002",
+    "SYN-RT-0003",
+    "SYN-RT-0004",
+    "SYN-RT-0005"
+  ],
+  "_egfr_note": "L09 熔斷點為 30;取跨越該點與極端值",
+  "egfr_values": [
+    "90",
+    "60",
+    "45",
+    "31",
+    "30",
+    "29",
+    "15",
+    "0",
+    "-1",
+    "9999",
+    "NaN",
+    ""
+  ],
+  "_ascvd_note": "L14 硬鎖點為 10;5-10 為 MANDATORY_TRANSDERMAL",
+  "ascvd_values": [
+    "2.0",
+    "5.0",
+    "7.5",
+    "10.0",
+    "10.1",
+    "14.0",
+    "99.9",
+    "-5",
+    "NaN",
+    ""
+  ],
+  "times": [
+    "09:00",
+    "13:59",
+    "14:00",
+    "16:10",
+    "23:59",
+    "24:00",
+    "-1:00",
+    "14:37",
+    "abc",
+    ""
+  ],
+  "sexes": [
+    "female",
+    "male",
+    "FEMALE",
+    "unknown",
+    "",
+    "null"
+  ],
+  "_vr6_note": "合法為 1-10 整數;含越界與非數值",
+  "vr6_values": [
+    "1",
+    "3",
+    "5",
+    "7",
+    "10",
+    "0",
+    "11",
+    "-3",
+    "5.5",
+    "NaN",
+    "null",
+    ""
+  ],
+  "_sspi_note": "前 8 項為治理集內的真實標籤(取自內核 sspi_library,非病人資料);其餘為攻擊用合成標籤 | 治理詞彙已代碼化，不公開（見論文附錄 B）",
+  "sspi_legit": [
+    "PCOS",
+    "<GOV-10>",
+    "<GOV-16>",
+    "<GOV-17>",
+    "<GOV-18>",
+    "<GOV-15>",
+    "<GOV-03>",
+    "<GOV-26>"
+  ],
+  "sspi_attack": [
+    "__SYN_UNKNOWN_TAG__",
+    "SYN_FABRICATED_CONDITION",
+    "PCOS; DROP TABLE patients",
+    "../../etc/passwd",
+    "<script>alert(1)</script>",
+    "<GOV-16> OR 1=1",
+    "{{7*7}}",
+    "%s%s%s%s",
+    "P C O S",
+    "pcos",
+    "PCOS ",
+    " PCOS",
+    "ＰＣＯＳ"
+  ],
+  "_control_char_note": "執行器會把這些代號替換成真正的字元後再送出,以免本檔含原始控制字元而無法解析。",
+  "control_char_attacks": [
+    "PCOS<NUL>null",
+    "<ZWSP>PCOS",
+    "PCOS<CR><LF><GOV-16>",
+    "<VLONG>"
+  ],
+  "_cofi_note": "合法等級僅 A/B/C",
+  "cofi_grades": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "a",
+    "1",
+    "",
+    "null"
+  ],
+  "_attack_styles": "給攻擊者模型的策略提示,由它自行組合出 payload",
+  "attack_styles": [
+    "邊界值:剛好跨過某個閾值一點點",
+    "型別混淆:該給數字的地方給字串或 null",
+    "編碼注入:零寬字元、全形半形、大小寫變化",
+    "語意近似:發明一個聽起來很像真實臨床標籤的新名詞",
+    "結構破壞:多給一個契約外的欄位",
+    "極端值:超出任何生理可能的數值",
+    "空值攻擊:全部欄位留空",
+    "重複與矛盾:同一標籤給兩次、或給互斥的兩個標籤"
+  ]
+}
